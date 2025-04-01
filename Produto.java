@@ -27,7 +27,7 @@ public class Produto {
 		this.valor = valor;
 	}
 	
-	double Vender(int qtyVenda) {
+	public double Vender(int qtyVenda) {
 		if(this.qty < qtyVenda) {
 			System.out.println("Não há a quantidade necessária para realizar a venda");
 			return 0;
@@ -36,20 +36,20 @@ public class Produto {
 		return this.valor*qtyVenda;
 	}
 	
-	void Comprar(int qtyCompra, float novoValor) {
+	public void Comprar(int qtyCompra, float novoValor) {
 		this.qty += qtyCompra;
 		this.valor = novoValor;
 	}
 	
-	void Comprar (int qtyCompra) {
+	public void Comprar (int qtyCompra) {
 		this.qty = qtyCompra;
 	}
 	
-	String Consultar () {
+	public String Consultar () {
 		return String.format(Locale.ROOT,"Produto %i: %s - %i - %s -R$%d", this.codigoSequencial, this.nome, this.qty, this.tipo, this.valor);
 	}
 	
-	String Inserir (String nome, int qty, String tipo, double valor) {
+	public String Inserir (String nome, int qty, String tipo, double valor) {
 		this.nome = nome;
 		this.qty = qty;
 		this.tipo = tipo;
@@ -57,7 +57,7 @@ public class Produto {
 		return this.Consultar();
 	}
 	
-	boolean Igual (Produto produto) {
+	public boolean Igual (Produto produto) {
 		return this.nome.equals(produto.nome) && this.tipo.equals(produto.tipo);
 	}
 }
